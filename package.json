@@ -1,0 +1,36 @@
+{
+  "name": "ahj-homework8-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "forever server.js",
+    "watch": "forever -w server.js",
+    "nodemon": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "faker": "^6.6.6",
+    "forever": "^4.0.3",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-cors": "^0.0.16",
+    "koa-router": "^10.1.1",
+    "nodemon": "^2.0.15",
+    "uuid": "^8.3.2",
+    "ws": "^8.6.0"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gapragapr/ahj-homework11-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gapragapr/ahj-homework11-server/issues"
+  },
+  "homepage": "https://github.com/gapragapr/ahj-homework11-server#readme",
+  "description": ""
+}
