@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "forever server.js",
+    "start": "nodemon server.js",
     "watch": "forever -w server.js",
     "nodemon": "nodemon server.js"
   },
