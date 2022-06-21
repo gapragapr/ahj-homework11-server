@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "forever server.js",
+    "start": "nodemon server.js",
     "watch": "forever -w server.js",
     "nodemon": "nodemon server.js"
   },
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "faker": "^6.6.6",
+    "@faker-js/faker": "^7.3.0",
     "forever": "^4.0.3",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0",
@@ -20,9 +20,6 @@
     "nodemon": "^2.0.15",
     "uuid": "^8.3.2",
     "ws": "^8.6.0"
-  },
-  "devDependencies": {
-    "@faker-js/faker": "^7.3.0"
   },
   "repository": {
     "type": "git",

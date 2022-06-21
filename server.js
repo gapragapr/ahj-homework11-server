@@ -2,9 +2,8 @@ const http = require('http');
 const Koa = require('koa');
 const Router = require('koa-router');
 const koaBody = require('koa-body');
-const uuid = require('uuid');
-const { faker } = require('@faker-js/faker');
 const app = new Koa();
+const Message = require('./message')
 
 app.use(async (ctx, next) => {
   const origin = ctx.request.get('Origin');
@@ -48,26 +47,6 @@ app.use(koaBody({
 const router = new Router();
 const server = http.createServer(app.callback());
 
-class Message{
-    constructor(){
-        this.id = uuid.v4(),
-        this.from = faker.internet.email(),
-        this.subject = `Hello from ${faker.name.firstName()}`,
-        this.body = faker.lorem.paragraph(2),
-        this.received = faker.date.recent()
-    }
-
-    returnObj(){
-        return {
-            id: this.id,
-            from: this.from,
-            subject: this.subject,
-            body: this.body,
-            received: this.received
-        }
-    }
-}
-
 const messagesList = {
     status: 'ok',
     timestamp: new Date().getTime(),
@@ -75,14 +54,15 @@ const messagesList = {
 }
 
 
-router.get('/messages/unread', async (ctx, next) => {
+router.get('/messages/unread', async (ctx) => {
     for (let i = 0; i < 2; i++){
         messagesList.messages.push(new Message().returnObj())
     }
 
     ctx.response.body = JSON.stringify(messagesList)
+    console.log('response complete')
 })
 
 app.use(router.routes()).use(router.allowedMethods());
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 7070;
 server.listen(port);
